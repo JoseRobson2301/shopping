@@ -60,7 +60,11 @@
           </tr>
         </table>
         <p>Total: R$<span id="totalPrice">0.00</span></p>
+        <div id="loadingOverlay">
+          <div class="loadingSpinner"></div>
+        </div>        
         <button onclick="finalizePurchase()">Finalizar Compra</button>
+        <button onclick="clearCart()">Limpar Carrinho</button>
       </section>
     </main>
   </body>

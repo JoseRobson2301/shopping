@@ -66,7 +66,16 @@ window.onload = function() {
       updateCart();
     }
   
-    // Adicione os listeners de clique aos botões após o carregamento completo da página
+    var loadingOverlay = document.getElementById("loadingOverlay");
+
+    function showLoading() {
+      loadingOverlay.style.display = "block";
+    }
+    
+    function hideLoading() {
+      loadingOverlay.style.display = "none";
+    }
+    
     var addToCartButtons = document.getElementsByClassName("adicionar");
     for (var i = 0; i < addToCartButtons.length; i++) {
       addToCartButtons[i].addEventListener("click", addToCartButtonClick);
@@ -79,3 +88,52 @@ window.onload = function() {
       addToCart(productName, price);
     }
   };
+
+
+
+
+
+
+// apagar tudo quando aperta "limpar carrinho"
+  function clearCart() {
+    cartItems = [];
+    updateCart();
+  }
+  
+  function updateCart() {
+    var cartTable = document.getElementById("carrinhoTable");
+    cartTable.innerHTML = "";
+  
+    var totalPrice = 0;
+  
+    cartItems.forEach(function(item, index) {
+      var row = cartTable.insertRow();
+      var productNameCell = row.insertCell(0);
+      var quantityCell = row.insertCell(1);
+      var priceCell = row.insertCell(2);
+      var removeButtonCell = row.insertCell(3);
+  
+      productNameCell.innerHTML = item.name;
+      quantityCell.innerHTML = item.quantity;
+      priceCell.innerHTML = "R$" + (item.price * item.quantity).toFixed(2);
+      totalPrice += item.price * item.quantity;
+  
+      var removeButton = document.createElement("button");
+      removeButton.innerHTML = "Remover";
+      removeButton.addEventListener("click", function() {
+        removeFromCart(index);
+      });
+      removeButtonCell.appendChild(removeButton);
+    });
+  
+    var totalElement = document.getElementById("totalPrice");
+    totalElement.innerHTML = totalPrice.toFixed(2);
+  
+    var cartSection = document.getElementById("carrinhoSection");
+    if (cartItems.length === 0) {
+      cartSection.style.display = "none";
+    } else {
+      cartSection.style.display = "none";
+    }
+  }
+  
