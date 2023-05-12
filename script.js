@@ -1,3 +1,5 @@
+alert('criado por jose robson da silva oliveira');
+
 window.onload = function() {
     var cartItems = [];
   
