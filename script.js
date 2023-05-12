@@ -89,51 +89,12 @@ window.onload = function() {
     }
   };
 
-
-
-
-
-
-// apagar tudo quando aperta "limpar carrinho"
-  function clearCart() {
-    cartItems = [];
-    updateCart();
-  }
-  
-  function updateCart() {
-    var cartTable = document.getElementById("carrinhoTable");
-    cartTable.innerHTML = "";
-  
-    var totalPrice = 0;
-  
-    cartItems.forEach(function(item, index) {
-      var row = cartTable.insertRow();
-      var productNameCell = row.insertCell(0);
-      var quantityCell = row.insertCell(1);
-      var priceCell = row.insertCell(2);
-      var removeButtonCell = row.insertCell(3);
-  
-      productNameCell.innerHTML = item.name;
-      quantityCell.innerHTML = item.quantity;
-      priceCell.innerHTML = "R$" + (item.price * item.quantity).toFixed(2);
-      totalPrice += item.price * item.quantity;
-  
-      var removeButton = document.createElement("button");
-      removeButton.innerHTML = "Remover";
-      removeButton.addEventListener("click", function() {
-        removeFromCart(index);
-      });
-      removeButtonCell.appendChild(removeButton);
-    });
-  
-    var totalElement = document.getElementById("totalPrice");
-    totalElement.innerHTML = totalPrice.toFixed(2);
-  
-    var cartSection = document.getElementById("carrinhoSection");
-    if (cartItems.length === 0) {
-      cartSection.style.display = "none";
-    } else {
-      cartSection.style.display = "none";
-    }
-  }
-  
+  $(document).ready(function() {
+    $("sectionAtivar").on("click", function(event){
+      event.preventDefault();
+      var target = $(this).attr("#carrinhoSection");
+      $("html, body").animate({
+        scrollTop: $(target).offset().top
+      }, 1000);
+    })
+  });

@@ -12,7 +12,7 @@
           <li><a href="#">Início</a></li>
           <li><a href="#">Produtos</a></li>
           <li><a href="#">Contato</a></li>
-          <li><a href="#" onclick="showCart()">Carrinho de Compras</a></li>
+          <li><a href="#carrinhoSection" class="sectionAtivar" onclick="showCart()" >Carrinho de Compras</a></li>
         </ul>
       </nav>
     </header>
@@ -21,29 +21,38 @@
         <h2>Produtos</h2>
         <table>
           <tr>
-            <td><img src="carrinho"></td>
+            <td class="produto-estilo"><img src="./DAMIX-Camiseta-T-shirt-Personagem-Anime-Japonês.jpg"></td>
             <td>
-              <h3>Produto 1</h3>
-              <p>Descrição do produto 1.</p>
-              <p>Preço: R$10,00</p>
+              <h3>DAMIX Camiseta T-shirt Personagem Anime Japonês</h3>
+              <p>DAMIX Camiseta T-shirt Personagem Anime Japonês</p>
+              <p>Preço: R$59,99</p>
               <button class="adicionar" onclick="addToCart('Produto 1', 10)">Adicionar ao carrinho</button>
             </td>
           </tr>
           <tr>
-            <td><img src="carrinho"></td>
+            <td class="produto-estilo"><img src="./DAMIX-Camiseta-T-shirt-Personagem-Anime-Olhos-Japones.jpg"></td>
             <td>
-              <h3>Produto 2</h3>
-              <p>Descrição do produto 2.</p>
-              <p>Preço: R$20,00</p>
+              <h3>DAMIX Camiseta T-shirt Personagem Anime Olhos Japones</h3>
+              <p>DAMIX Camiseta T-shirt Personagem Anime Olhos Japones</p>
+              <p>Preço: R$59,99</p>
               <button class="adicionar" onclick="addToCart('Produto 2', 20)">Adicionar ao carrinho</button>
             </td>
           </tr>
           <tr>
-            <td><img src="carrinho"></td>
+            <td class="produto-estilo"><img src="./SHEIN-X-Zhihan-Wang-Desenho-Animado-Slogan-ocasional-Camiseta.jpg"></td>
             <td>
-              <h3>Produto 3</h3>
-              <p>Descrição do produto 3.</p>
-              <p>Preço: R$30,00</p>
+              <h3>SHEIN X Zhihan Wang Desenho Animado Slogan ocasional Camiseta</h3>
+              <p>SHEIN X Zhihan Wang Desenho Animado Slogan ocasional Camiseta</p>
+              <p>Preço: R$35,99</p>
+              <button class="adicionar" onclick="addToCart('Produto 3', 30)">Adicionar ao carrinho</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="produto-estilo"><img src="./ROMWE-Anime-Rapazes-Camiseta-Figura-Gráfica.webp"></td>
+            <td>
+              <h3>ROMWE Anime Rapazes Camiseta Figura Gráfica</h3>
+              <p>ROMWE Anime Rapazes Camiseta Figura Gráfica</p>
+              <p>Preço: R$64,90</p>
               <button class="adicionar" onclick="addToCart('Produto 3', 30)">Adicionar ao carrinho</button>
             </td>
           </tr>
@@ -64,7 +73,6 @@
           <div class="loadingSpinner"></div>
         </div>        
         <button onclick="finalizePurchase()">Finalizar Compra</button>
-        <button onclick="clearCart()">Limpar Carrinho</button>
       </section>
     </main>
   </body>

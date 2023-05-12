@@ -1,148 +1,196 @@
-html, body {
+/* Estilo geral */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
   padding: 0;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #008cff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
   margin: 0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
-  
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-}
-  
-nav {
-  display: flex;
-  justify-content: flex-end;
-}
-  
+/* Navegação */
 nav ul {
+  display: flex;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-  
+
 nav li {
-  display: inline-block;
   margin-left: 20px;
 }
-  
+
 nav a {
   color: #fff;
   text-decoration: none;
-}
-  
-main {
-  margin: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-  
-.produtos {
-  flex: 1;
-}
-  
-.produtos h2 {
-  margin-top: 0;
-}
-  
-.produtos table {
-  width: 100%;
-}
-  
-.produtos td {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-  
-.produtos img {
-  width: 50px; 
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
+button {
+  transition: .3s ease-in-out;
+}
+
+.adicionar:hover {
+  transform: scale(1.05);
+}
+
+nav a:hover {
+  color: #ddd;
+}
+
+/* Produtos */
+.produtos {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.produtos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.produtos img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.produtos img:hover {
+  transform: scale(1.05);
+}
+
+.produtos td {
+  padding: 10px;
+  border: 0.5px solid #ccc;
+  text-align: center;
+  width: 5vh;
+}
+
+.produtos h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.produtos p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.produtos .adicionar {
+  background-color: #008cff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.produtos .adicionar:hover {
+  background-color: #2083d4;
+}
+
+/* Carrinho de compras */
 .carrinho {
-  flex: 1;
-  margin-left: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
-    
-.carrinho h2 {
-  margin-top: 0;
-}
-    
+
 .carrinho table {
   width: 100%;
+  border-collapse: collapse;
 }
-    
+
 .carrinho th {
-  background-color: #333;
+  background-color: #008cff;
   color: #fff;
   padding: 10px;
+  text-align: center;
 }
-    
+
 .carrinho td {
   padding: 10px;
   border: 1px solid #ccc;
+  text-align: center;
 }
-    
-.adicionar {
-  background-color: #333;
+
+.carrinho p {
+  margin: 10px 0;
+}
+
+.carrinho button {
+  background-color: #2083d4;
   color: #fff;
   border: none;
-  padding: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-    
-.adicionar:hover {
-  background-color: #444;
+
+.carrinho button:hover {
+  background-color: #1c71b6;
+  transform: scale(1.05);
 }
 
 ::-webkit-scrollbar {
   display: none;
-} 
-    
-#loadingOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  z-index: 9999;
 }
 
-.loadingSpinner {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-@media screen and (max-width: 500px) {
+/* Responsividade */
+@media screen and (max-width: 768px) {
   main {
-  flex-direction: column;
-}
-    
-.carrinho {
-  margin-left: 0;
-  margin-top: 20px;
+    flex-direction: column;
+  }
+  
+  .carrinho {
+    margin-top: 20px;
+  }
+  
+  .produtos {
+    padding: 10px;
+  }
+  
+  .produtos img {
+    height: 150px;
+  }
+  
+  .produtos h3 {
+    font-size: 18px;
+  }
+  
+  .produtos p {
+    font-size: 14px;
+  }
+  
+  .produtos .adicionar,
+  .carrinho button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
