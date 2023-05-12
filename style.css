@@ -163,7 +163,7 @@ nav a:hover {
 }
 
 /* Responsividade */
-@media screen and (max-width: 768px) {
+@media screen and (width: 375px) and (height: 667px) {
   main {
     flex-direction: column;
   }
